@@ -1,5 +1,5 @@
 [Unit]
-Description=1C:Enterprise Server 8.3
+Description=1C:Enterprise Server 8.3 (%i)
 Requires=network.target
 
 [Service]
@@ -29,6 +29,12 @@ Environment=SRV1CV8_RANGE=1560:1591
 # 2 - permanently protected connections
 Environment=SRV1CV8_SECLEV=0
 
+# 1C:Enterprise server configuration debug mode
+# blank - default - debug mode is off
+# -debug - debug mode is on
+#
+Environment=SRV1CV8_DEBUG=
+
 # Check period for connection loss detector, milliseconds
 Environment=SRV1CV8_PING_PERIOD=1000
 
@@ -40,8 +46,8 @@ Environment=SRV1CV8_PING_TIMEOUT=5000
 #           installation directory
 Environment=KRB5_KTNAME=/opt/1cv83/x86_64/%I/usr1cv8.keytab
 
-ExecStart=/opt/1cv8/x86_64/%I/ragent -d ${SRV1CV8_DATA} -port ${SRV1CV8_PORT} -regport ${SRV1CV8_REGPORT} -range ${SRV1CV8_RANGE} \
--seclev ${SRV1CV8_SECLEV} -pingPeriod ${SRV1CV8_PING_PERIOD} -pingTimeout ${SRV1CV8_PING_TIMEOUT}
+ExecStart=/bin/sh -c "/opt/1cv8/x86_64/%i/ragent -d ${SRV1CV8_DATA} -port ${SRV1CV8_PORT} -regport ${SRV1CV8_REGPORT} \
+-range ${SRV1CV8_RANGE} -seclev ${SRV1CV8_SECLEV} -pingPeriod ${SRV1CV8_PING_PERIOD} -pingTimeout ${SRV1CV8_PING_TIMEOUT} ${SRV1CV8_DEBUG}"
 Restart=always
 RestartSec=5
 PrivateTmp=yes
