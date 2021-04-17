@@ -1,0 +1,18 @@
+[Unit]
+Description=1C:Fresh Application Gateway
+Wants=network.target
+After=network.target
+
+[Service]
+Type=simple
+User=appgate
+Group=grpappgate
+WorkingDirectory=/opt/1C/1cfresh/appgate
+EnvironmentFile=/etc/default/appgate
+ExecStart=/bin/java -Dlogback.configurationFile=${LOGBACK_SETTINGS} com._1c.v8.appgate.Main --settings ${GATE_SETTINGS}
+#ExecStart=/bin/java ${JAVACMD_OPTS} -Dlogback.configurationFile=${LOGBACK_SETTINGS} com._1c.v8.appgate.Main --settings ${GATE_SETTINGS}
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target
