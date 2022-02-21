@@ -1,0 +1,17 @@
+[Unit]
+Description=1C Agent ETP
+Wants=network.target
+After=network.target
+
+[Service]
+Type=simple
+User=agentetp
+Group=grpagentetp
+WorkingDirectory=/opt/1C/agentetp
+Environment=JAVACMD_OPTS="-XX:-UseConcMarkSweepGC -XX:-UseParallelGC -Xms30m -Xmx300m -XX:+UseCompressedOops -XX:CompileThreshold=1"
+ExecStart=/usr/bin/java -jar com._1c.etp.agent.jar com._1c.v8.agentetp.Main
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target                          
