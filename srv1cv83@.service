@@ -8,7 +8,7 @@ User=usr1cv8
 Group=grp1cv8
 
 # Path to directory with claster data
-Environment=SRV1CV8_DATA=/home/usr1cv8/.1cv8/1C/1cv8/
+Environment=SRV1CV8_DATA=/home/%u/.1cv8/1C/1cv8/
 
 # Number of the cluster port created by default during first
 # launch of ragent
@@ -42,9 +42,9 @@ Environment=SRV1CV8_PING_PERIOD=1000
 Environment=SRV1CV8_PING_TIMEOUT=5000
 
 # 1C:Enterprise server keytab file.
-# default - usr1cv83.keytab file in 1C:Enterprise server
+# default - usr1cv8.keytab file in 1C:Enterprise server
 #           installation directory
-Environment=KRB5_KTNAME=/opt/1cv83/x86_64/%I/usr1cv8.keytab
+Environment=KRB5_KTNAME=/opt/1cv8/x86_64/%i/%u.keytab
 
 ExecStart=/bin/sh -c "/opt/1cv8/x86_64/%i/ragent -d ${SRV1CV8_DATA} -port ${SRV1CV8_PORT} -regport ${SRV1CV8_REGPORT} \
 -range ${SRV1CV8_RANGE} -seclev ${SRV1CV8_SECLEV} -pingPeriod ${SRV1CV8_PING_PERIOD} -pingTimeout ${SRV1CV8_PING_TIMEOUT} ${SRV1CV8_DEBUG}"
