@@ -50,7 +50,6 @@ ExecStart=/bin/sh -c "/opt/1cv8/x86_64/%i/ragent -d ${SRV1CV8_DATA} -port ${SRV1
 -range ${SRV1CV8_RANGE} -seclev ${SRV1CV8_SECLEV} -pingPeriod ${SRV1CV8_PING_PERIOD} -pingTimeout ${SRV1CV8_PING_TIMEOUT} ${SRV1CV8_DEBUG}"
 Restart=always
 RestartSec=5
-PrivateTmp=yes
 
 [Install]
 DefaultInstance=current
