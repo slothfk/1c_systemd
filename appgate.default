@@ -1,7 +1,0 @@
-CLASSPATH="aopalliance.jar:appgate.jar:guice-3.0.jar:guice-assistedinject-3.0.jar:guice-multibindings-3.0.jar:javassist.jar:javax.inject.jar:logback-classic-1.2.3.jar:logback-core-1.2.3.jar:netty-all-4.0.56.Final.jar:protobuf-2.5.0.jar:slf4j-api-1.7.5.jar"
-
-JAVACMD_OPTS="-XX:CompileThreshold=1"
-
-LOGBACK_SETTINGS="settings/logback.xml"
-
-GATE_SETTINGS="settings/appgatesettings.xml"

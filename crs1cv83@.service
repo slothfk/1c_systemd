@@ -1,0 +1,26 @@
+[Unit]
+Description=1C:Enterprise Configuration Repository Server (%i)
+After=network.target
+
+[Service]
+Type=simple
+User=usr1cv8
+Group=grp1cv8
+
+# Path to directory with crs data
+Environment=CRS1CV8_DATA=/home/usr1cv8/.1cv8/1C/1cv8
+
+# Number of the crs port
+Environment=CRS1CV8_PORT=1542
+
+ExecStart=/bin/sh -c "/opt/1cv8/x86_64/%i/crserver -port ${CRS1CV8_PORT} -d ${CRS1CV8_DATA}"
+
+KillSignal=SIGINT
+PrivateTmp=true
+Restart=on-failure
+RestartSec=5
+
+[Install]
+DefaultInstance=default
+WantedBy=multi-user.target
+
